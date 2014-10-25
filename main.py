@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 # app configuration
 app = Flask(__name__)
 app.debug = True
+PORT = 8080
 
 # rudimentary, hacky database
 blogEntries = [] # this is a time-ordered list of "entries"
@@ -53,4 +54,4 @@ def refreshEntries():
 
 # start the app if we're directly running this file
 if __name__ == "__main__":
-  app.run()
+  app.run(host = "0.0.0.0", port = PORT)
