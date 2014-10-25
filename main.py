@@ -8,8 +8,9 @@ app.debug = False
 PORT = 8080
 
 # rudimentary, hacky database
-blogEntries = [] # this is a time-ordered list of "entries"
+blogEntries = [] # this is a time-ordered MRU list of "entries"
 
+# helper functions
 def findUTCTimeString():
   currDT = datetime.utcnow()
   return currDT.strftime("%I:%M %p (UTC) %b %d, %Y")
