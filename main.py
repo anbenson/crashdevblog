@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 # app configuration
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 PORT = 8080
 
 # rudimentary, hacky database
@@ -19,13 +19,6 @@ def createEntry(author, title, text):
           "title": title,
           "text": text,
           "datetime": findUTCTimeString()}
-
-class Entry(object):
-  def __init__(self, author, title, text):
-    self.author = author
-    self.title = title
-    self.text = text
-    self.date = datetime.utcnow()
 
 # routing
 @app.route("/")
