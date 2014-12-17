@@ -1,12 +1,15 @@
-crashdevblog-example
+crashdevblog
 ==================
 
-The example crashdevblog created for the Intro Web Applications workshop for ScottyLabs' CrashCourse 2014.
+A simple blog (somewhat similar to my [webdevblog](https://github.com/anbenson/webdevblog)) written in Python and Flask, but stores data in-memory (i.e. a Python list, and yes, I'm sorry, but it's easier logistically for teaching). Check it out at [crashdevblog.herokuapp.com](https://crashdevblog.herokuapp.com).
 
-This website is created in Flask, backed by the worst database ever: RAM. It's notable, though, that it includes an AJAX request, I guess.
+This was created for the Fall 2014 edition of [CrashCourse](http://crashcourse.scottylabs.org), a series of tech-related workshops at CMU hosted by [ScottyLabs](http://scottylabs.org). Students in the Intro Web Apps workshop wrote a blog very similar to this one. The starter code and the handouts for the event can be found in the 'resources' folder in the repository.
 
-If you're in the Intro Web Applications workshop, this is not the right repository. This is the example website, not the working website.
+Steps to run:
+- git clone git@github.com:anbenson/crashdevblog.git
+- cd crashdevblog
+- pip install -r requirements.txt
+- python main.py
+- go to localhost:5000
 
-The extra files (like the Procfile) are needed to get this to work on Heroku.
-
-You can find this website hosted at crashdevblog.herokuapp.com. You could probably crash this easily, or do bad things, but please don't.
+If you're trying to do this on AFS, take a look at the instructions in the PDF in the resources folder.

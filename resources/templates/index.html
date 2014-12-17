@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>The CrashDevBlog</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='base.js') }}"></script>
+    <script type="text/javascript">
+      // DOCUMENTATION...
+      // createBlogEntry(author, title, text, datetime) takes in strings that
+      //     correspond to a blog entry and creates a HTML node that represents it
+      // addBlogEntry(entry) takes in a HTML node representing a blog entry and adds //     it to the page
+      // emptyBlogEntries() removes all current blog entries from the page
+
+      window.onload = function() {
+        // find refresh button, and watch for clicks on it
+        var refreshButton = document.getElementById("refresh-button");
+        refreshButton.addEventListener("click", function() {
+          // save the button's text for later, and display a loading message
+          var buttonText = refreshButton.innerHTML;
+          refreshButton.innerHTML = "Loading...";
+          // create an AJAX request
+          var xhr = new XMLHttpRequest();
+          xhr.onload = function() {
+            alert(this.responseText);
+            // clear all the current blog entries on the page
+            
+            // parse the result into a JavaScript list
+            
+            // loop through the list, create a blog entry HTML node out of it,
+            //     and add it to the page
+            
+            // restore the button's text
+            refreshButton.innerHTML = buttonText;
+          }
+          // direct and send the request
+          xhr.open("get", "/refreshEntries");
+          xhr.send();
+        })
+      };
+    </script>
+{% endblock %}
+
+{% block body %}
+        <div class="body-header">
+          <h1>The CrashDevBlog</h1>
+          <em>
+            the WebApp CrashCourse sample blog
+          </em>
+        </div>
+        <button id="refresh-button">Check for new entries</button>
+        <div id="blog-entry-container">
+          {% for entry in entries %}
+          <div class="blog-entry">
+            <div class="entry-header">
+              <div class="entry-title">
+                <h2>{{ entry.title }}</h2>
+              </div>
+              <div class="entry-metadata">
+                <div class="entry-author">
+                  <p class="entry-author">{{ entry.author }}</p>
+                </div>
+                <div class="entry-date">
+                  <p class="entry-date">{{ entry.datetime }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="entry-content">
+              <p class="entry-description">{{ entry.text }}</p>
+            </div>
+            <div class="entry-toggle">
+              <p>
+                click here to show/hide
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+{% endblock %}
