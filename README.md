@@ -10,6 +10,6 @@ Steps to run:
 - cd crashdevblog
 - pip install -r requirements.txt
 - python main.py
-- go to localhost:5000
+- go to localhost:8080
 
 If you're trying to do this on AFS, take a look at the instructions in the PDF in the resources folder.
